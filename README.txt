@@ -56,8 +56,8 @@ Una vez que se descarga la carpeta de GIT, deben seguise los siguientes pasos:
 		//Instalar express validator
 		npm install express-validator --save
 		
-	7. Entrar a "workbench mysql" y ejecutar el script: "scriptSql.sql"
-	8. Una vez creadas las tablas, ejecutar el script "poblarTablas.sql"
+	7. Entrar a "workbench mysql" y ejecutar el script: "scriptSql.sql". Este archivo se encuentra en la carpeta "db"
+	8. Una vez creadas las tablas, ejecutar el script "poblarTablas.sql".  Este archivo se encuentra en la carpeta "db"
 	9. Entrar a XAMPP y ejecuar "Start" en el módulo SQL.
 	10. Volver al Visual studio Code y en la terminal escribir:
 		$npm start
