@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Include Head -->
+<%- include('partials/head', {title: 'Listado  Publicación'}) %>
+
+<body class="d-flex h-100 text-center text-white bg-dark">
+    
+    <div class="d-flex w-100 h-100 p-3 mx-auto flex-column">
+        <!-- Header -->
+        <%- include('partials/header2') %>
+
+        <main class ="container"> 
+            
+                <div class="list-group" id="publicationList">
+                    <div class="text-center">
+                        <h2>Mis Publicaciones</h2>
+                    </div>
+    
+                    <% publications.forEach(publication => { %>
+                       
+                        <div class="list-group-item list-group-item-action py-2" id="items">
+                            <div class="d-flex w-100 justify-content-between">
+                                <p class="text-dark mb-1 font-weight-bold" id="title"><%=publication.title %></p>
+                                <input type="hidden" id="publicationId" name="publicationId" value=<%=publication.id %>>
+                                <span class="badge bg-secondary rounded-pill py-1" id ="likes"> <i class="fas fa-heart py-1"></i> <%= publication.likes %></span>
+                            </div>
+                                <small class="d-block text-start text-dark d-flex">
+                                <a href="/publication/publication-detail/<%=publication.id %>" class="btn btn-outline-success btn-sm">Ver Publicación</a>
+                                <form method="POST" action="/publication/delete/<%=publication.id %>">
+                                    <input type="submit" class="btn btn-outline-danger btn-sm" value="Eliminar">
+                                </form>
+                                
+                              </small>
+                        </div>      
+                    <% }) %>   
+                </div>  
+        </main>
+        <!-- Footer -->
+        <%- include('partials/footer') %>
+        <!-- /Footer -->
+    </div>
+    <script src="/js/header.js"></script>
+     
+</body>
+</html>
+        

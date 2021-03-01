@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Include Head -->
+<%- include('partials/head', {title: 'Blog'}) %>
+
+<body class="d-flex h-100 text-center text-white bg-dark">
+    
+    <div class="d-flex w-100 h-100 p-3 mx-auto flex-column">
+        <!-- Header -->
+        <%- include('partials/header2') %>
+
+        <main >
+            
+            <div class="text-center">
+                <h2>Crear una nueva publicación</h2>
+                <p class="lead"> En este espacio podrás expresarte libremente...</p>
+              </div>
+
+              <form class="form-publication" action="/publication/create" method="post" enctype="multipart/form-data">
+                <div class = "form-label-group">
+                    <label for="inputEmail" class="visually-hidden">Título Publicación</label>
+                    <input type="text" id="title" name= "title" class="form-control" placeholder="Título Publicación" required autofocus>
+                </div>
+                
+                <div class="form-group">
+                    <textarea class="form-control" aria-label="With textarea" rows="10"  placeholder="Describre tu publicación" id="body" name="body"></textarea>
+                  </div>
+                
+                <div class="py-3 form-group">
+                    <input class="form-control form-control-sm" id="file" type="file" name="file" />
+                </div>
+
+                <button class="btn btn-lg btn-primary" type="submit">Crear</button>
+                        
+             </form>
+
+        </main>
+
+        <!-- Footer -->
+        <%- include('partials/footer') %>
+        <!-- /Footer -->
+    </div>
+    
+    <script src="/js/header.js"></script>
+
+</body>
+</html>
+        

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/head', {title: 'Comentar Publicación'}) %>
+
+    <body class="d-flex h-100 text-center text-white bg-dark">
+    
+        <div class="d-flex w-100 h-100 p-3 mx-auto flex-column">
+            <!-- Header -->
+            <%- include('partials/header2') %>
+     
+            <main class="container">
+                <!-- Detalle de la publicación-->
+                <form class = "form-publication" action="/publication/addComment" method="post">
+                    <div>
+                    
+                        <div class="text-center">
+                            <h4>Comentar Publicación</h4>
+                        </div>
+
+                        <div class="form-group">
+                            <textarea class="form-control" aria-label="With textarea" rows="5"  placeholder="Agregar Comentario" id="comment" name="comment"></textarea>
+                        </div>
+                        <div class="form-group py-3">
+                            <input type="submit" class="btn btn-primary" value="Agregar Comentario">
+                        </div>
+                    
+                    <input type="hidden" id="publicationId" name="publicationId" value= <%= publication.id %> >
+                    
+                    <div class="row text-center">
+                        <div class="col-md-8">
+                            <blockquote>   
+                                <article class="blog-post">
+                                    <h2 class="blog-post-title">Título: <%= publication.title %></h2>
+                                    <p class="blog-post-meta"><%= publication.createdAt %> </p> <span class="badge bg-secondary rounded-pill py-1" id ="likes"> <i class="fas fa-heart py-1"></i> <%= publication.likes %></span>
+                        
+                                <p>Comentario: <%= publication.body %></p>
+                                </blockquote>
+                        </div>
+                    </div>
+
+
+
+                    <% if (aryComment.length) { %>
+                        <div class="my-3 p-3 bg-body rounded text-dark">
+                            
+                            <h6 class="border-bottom pb-2 mb-0 ">Comentarios Recientes</h6>
+                            <% aryComment.forEach(element => { %>
+                                <div class="d-flex text-muted pt-3">
+                                    <i class="fas fa-comment"></i>
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom">
+                                        <strong class="d-block text-gray-dark"><%= element.id %></strong>
+                                        <%= element.comment %>
+                                    </p>
+                                </div>
+                            <% }) %>
+                        </div>
+                    <% } else { %>
+                        <div class="my-3 p-3 bg-body rounded">
+                            <h6 class="border-bottom pb-2 mb-0 text-dark">Actualmente esta publicación no tiene comentarios</h6>
+                        </div>
+                    <% } %>
+                </form>   
+            </main>   
+                        
+        <!-- Agregar nuevos comentarios-->
+
+    </div>
+
+    <script src="/js/header.js"></script>
+</body>
+</html>

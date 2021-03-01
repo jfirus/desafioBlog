@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Include Head -->
+<%- include('partials/head', {title: 'Blog'}) %>
+
+</html>
+
+<body class="d-flex h-100 text-center text-white bg-dark">
+    
+    <div class="d-flex w-100 h-100 p-3 mx-auto flex-column">
+        <!-- Header -->
+        <%- include('partials/header2') %>
+        <!-- /Header -->
+        <div>
+            <h1>Crear tu cuenta</h1>
+        </div>
+        
+        <main class="form-signin">
+            <form action="/user/register" method="post">
+                <h2 class="h3 mb-3 fw-normal">Por favor, ingresá los siguientes datos</h2>
+                <div class = "form-label-group">
+                    <label for="name" class="visually-hidden">Nombre</label>
+                    <input type="text" id="name" name="name" class="form-control" placeholder="Nombre" required autofocus>
+                </div>
+                
+                <div class = "form-label-group">
+                    <label for="lastname" class="visually-hidden">Apellido</label>
+                    <input type="text" id="lastname" name="lastname" class="form-control" placeholder="Apellido" required autofocus>
+                </div>
+                
+                <div class = "form-label-group">
+                    <label for="email" class="visually-hidden">Email</label>
+                    <input type="email" id="email" name = "email"class="form-control" placeholder="Email" required autofocus>
+                </div>
+                
+                <div class = "form-label-group">
+                    <label for="password" class="visually-hidden">Password</label>
+                    <input type="password" id="password" name= "password" class="form-control" placeholder="Password" required>
+                </div>
+               
+               
+                <input type="submit" value="Registrarse" class="w-100 btn btn-lg btn-primary">
+            </form>
+        </main>
+        <!-- Footer -->
+        <%- include('partials/footer') %>
+        <!-- /Footer -->
+    </div>
+    <script src="/js/header.js"></script>
+    
+</body>
+</html>
+

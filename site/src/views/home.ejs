@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Include Head -->
+<%- include('partials/head', {title: 'Blog'}) %>
+
+
+<body class="d-flex h-100 text-center text-white bg-dark">
+    <!-- <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column"> -->
+    <div class="d-flex w-100 h-100 p-3 mx-auto flex-column">
+        <!-- Header -->
+        <%- include('partials/header2') %>
+        <!-- /Header -->
+        <main class="container">
+
+            <!-- Sección Inicial-->
+            <section class="text-center container" id = "session">
+                <div class="row ">
+                  <div class="col-lg-6 col-md-8 mx-auto py-3">
+                    <h1 class="fw-light">BIENVENIDOS</h1>
+                    <p class="lead" id="idTittle">Un lugar donde tenés tu espacio para crear, opinar y abrir tu imaginación!</p> 
+                    <div >
+                        <a href="/publication/create" class="btn btn-danger col" id="createPublicationUp">¡Creá tu publicación!</a>
+                    </div>         
+                  </div>
+                </div>
+            </section>
+                       
+            <div >
+                <div class="container ">
+
+                    <div class="row row-cols-2 py-3">
+                        <% if (resultado.length >0){ %> 
+                            
+                            <!--Recorro el array de las publicaciones para mostrarlas por pantalla-->
+                            <% resultado.forEach(element => { %>
+                                
+                                <div class= "row g-0 rounded overflow-hidden flex-md-row mb-4 h-50 position-relative p-2">
+                                    <div class="card position-static">
+
+                                        <img class="card-img-top mw-50" src="./img/publication/<%- element.image %>" alt= <%= element.title %>>
+                                                                                    
+                                        <div class="card-body">
+                                            <h4 class="card-title text-dark "><%= element.title %></h4>
+                                            <p class="card-text text-dark"><%= element.body %></p>
+                                            <input type="hidden" id="publicationId" name="publicationId" value=<%=element.id %>>
+                                            <div class="d-flex justify-content-between align-items-center" >
+                                                <div>
+                                                    <p class=" text-dark" id="cantLikes"> <i class="fas fa-heart"></i> <%=element.likes %></p>
+                                                </div>
+                                                <div class="btn-group ">
+                                                <button type="button" id="comment" class="btn btn-sm btn-outline-secondary">Comentar</button>
+                                                <button type="button" id="like" class="btn btn-sm btn-outline-secondary">Like</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            <% }) %>
+                            <!--Fin del array-->
+                        <% } else { %>
+                            <label for="prueba">Entró por el falso <%- resultado.length  %> </label>
+                        
+                        <% }  %>
+                    </div>
+                </div>
+            </div>
+    
+            <div  class = "container py-2 border ">
+                    <label class = "col">¿Aún no tenés publicaciones?</label>
+                    <a href="/publication/create" class="btn btn-danger col">¡Realizá tu primera publicación!</a>
+            </div>
+        </main>
+    <!-- Footer -->
+    <%- include('partials/footer') %>
+    <!-- /Footer -->
+    </div>
+
+<script src="/js/home.js"></script>
+<script src="/js/header.js"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Include Head -->
+<%- include('partials/head', {title: 'Blog'}) %>
+
+<body class="text-center text-white bg-dark">
+    
+    <div class="d-flex w-100 h-100 p-3 mx-auto flex-column">
+        <!-- Header -->
+        <%- include('partials/header2') %>
+        <!-- /Header -->
+        <main class="form-signin">
+
+            <form action="/user/login" method="post">
+                <h1 class="h3 mb-3 fw-normal">Por favor, ingresá tus credenciales</h1>
+                <div class = "form-label-group">
+                    <label for="email" class="visually-hidden">Email</label>
+                    <input type="email" name="email" id="email" class="form-control" placeholder="Email" required autofocus>
+                </div>
+                
+                <div class = "form-label-group">
+                    <label for="password" class="visually-hidden">Password</label>
+                    <input type="password" name="password" id="password" class="form-control" placeholder="Password" required>
+                    
+                </div>
+               <!-- Comento el recordame 
+                <div class = "form-label-group">
+                    <div class="checkbox mb-3">
+                        <label>
+                            <input type="checkbox" value="rememberme"> Recordar Usuario
+                        </label>
+                    </div>
+                </div>
+                
+            -->
+
+                <input type="submit" value="Acceder" class="w-100 btn btn-lg btn-primary">                       
+             </form>
+
+             <div class="py-3">
+                <h5>¿No tenés cuenta? <a href="/user/register">Registrate</a></h5>
+            </div>
+        </main>
+        <!-- Footer -->
+        <%- include('partials/footer') %>
+        <!-- /Footer -->
+    </div>
+    <script src="/js/header.js"></script>
+</body>
+</html>
+

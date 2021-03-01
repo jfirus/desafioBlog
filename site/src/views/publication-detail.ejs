@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Include Head -->
+<%- include('partials/head', {title: 'Editar Publicación'}) %>
+
+<body class="d-flex h-100 text-center text-white bg-dark">
+    
+    <div class="d-flex w-100 h-100 p-3 mx-auto flex-column">
+        <!-- Header -->
+        <%- include('partials/header2') %>
+
+        <main class="container">
+            <div class="text-center">
+                <h2>Detalle de la Publicación</h2>
+            </div>
+    
+            <form class="form-publication" action="/publication/edit/<%=  publication.id%>" method="post" enctype="multipart/form-data">
+                <div class = "form-label-group">
+                    <label for="inputEmail" class="visually-hidden">Título Publicación</label>
+                    <input type="text" id="title" name= "title" class="form-control" placeholder="Título Publicación" required autofocus value="<%=  publication.title%>">
+                </div>
+                
+                <div class="form-group">
+                    <textarea class="form-control" aria-label="With textarea" rows="10"  placeholder="Describre tu publicación" id="body" name="body"><%=  publication.body%></textarea>
+                </div>
+                
+                <div class="py-3 ">
+                    <input class="form-control form-control-sm" id="file" type="file" name="file" />
+                </div>
+    
+                <div class="py-3">
+                    <a class="btn btn-secondary btn-sm text-light "  href="/">Cancelar</a>
+                    <input class="btn btn-secondary btn-sm text-light "  type="submit" value="Modificar">
+                </div>
+                    
+            </form>
+        </main>
+        
+        <!-- Footer -->
+        <%- include('partials/footer') %>
+        <!-- /Footer -->
+    </div>
+    <script src="/js/header.js"></script>
+    
+</body>
+</html>
+        
